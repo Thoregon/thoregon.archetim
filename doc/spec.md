@@ -16,7 +16,7 @@ An object with properties.
 
 A collection of entities. Each item gets a generated arbitrary key.
 
-Specialized case of entiry. 
+Specialized case of entity. 
 
 ## Dictionary
 
@@ -32,3 +32,11 @@ Specialized case of entiry.
 
 To take advantage of the benefits you need to create all entities using the 
 archetim factories.
+
+
+# Claims
+
+- for a specific entity with its properties
+- same for collections and dictionaries
+- referenced entities may need another claim
+
