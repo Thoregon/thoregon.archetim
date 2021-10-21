@@ -7,7 +7,6 @@ provides a common API for entity (object) persistence
 it provides also an SPI to be able to use multiple DB implementations
 
 
-
 ## Entity
 
 An object with properties. 
@@ -17,6 +16,8 @@ An object with properties.
 A collection of entities. Each item gets a generated arbitrary key.
 
 Specialized case of entity. 
+
+--> TravellingWindowList
 
 ## Dictionary
 

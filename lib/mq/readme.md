@@ -1,0 +1,29 @@
+Message Queue
+=============
+
+
+## Request/Response
+
+- two parties
+- exclusive communication
+
+how it works
+
+- service creates queue
+    - define permissions (which pubkeys can request)
+- client requests a 'private' queue
+    - queue with one address will be created
+- client requests work
+    - service answers
+- after work is done private Q will be dropped
+
+## Publish/Subscribe
+
+- one publisher
+- many subscribers
+
+## Push/Pull
+
+- one client push taks
+- multiple workers produce
+- client pulls results
