@@ -21,24 +21,7 @@ Object
     - if not add mapping with random name
     - store reference
 
-Iterable
-
-- same as Object but
-- properties get no mapping
-- order of the entries will be maintained by the state (gun) 
-
-Set property of object
-
-- simple property
-    - modify entries simple properties
-    - encrypt, sing and store as JSON
-- references
-    - check if persistent
-
-Get Object
-
-Get Iterable
-
+Collection items are always stored with generated keys 
 
 Listen to modifications
 

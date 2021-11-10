@@ -1,6 +1,12 @@
 Message Queue
 =============
 
+## connect MQ to a service object
+
+the service object implements the offered functionality.
+
+the consumer get a transparent proxy offering the service like its
+localy available. 
 
 ## Request/Response
 
