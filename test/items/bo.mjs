@@ -19,8 +19,6 @@ export class BOMeta extends MetaClass {
         this.object     ( "b", BO);
         this.object     ( "c", BO);
         this.object     ( "y", BO);
-        this.collection ( "i", BO);
-        this.collection ( "j", Object, { embedded: true });
     }
 
 };
