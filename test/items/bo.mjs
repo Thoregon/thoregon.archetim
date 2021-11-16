@@ -15,7 +15,7 @@ export class BOMeta extends MetaClass {
         this.name = "BO";
 
         this.text       ( "a" );
-        this.text       ( "x" );
+        this.text       ( "x", { defaultValue: 'X' } );
         this.object     ( "b", BO);
         this.object     ( "c", BO);
         this.object     ( "y", BO);
