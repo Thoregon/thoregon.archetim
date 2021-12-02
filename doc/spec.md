@@ -6,6 +6,8 @@ provides a common API for entity (object) persistence
 
 it provides also an SPI to be able to use multiple DB implementations
 
+use [OWL](https://www.w3.org/OWL/) for descriptions
+
 
 ## Entity
 

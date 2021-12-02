@@ -15,6 +15,7 @@ export class BOMeta extends MetaClass {
         this.name = "BO";
 
         this.text       ( "a" );
+        this.text       ( "b" );
         this.text       ( "x", { defaultValue: 'X' } );
         this.object     ( "b", BO);
         this.object     ( "c", BO);
@@ -32,6 +33,15 @@ export default class BO extends ThoregonEntity() {
 
     test() {
         console.log(("BO test"));
+    }
+
+    get b() {
+        if (!this._b) this.b = 'B';
+        return this._b;
+    }
+
+    set b(val) {
+        this._b = val;
     }
 
 }
