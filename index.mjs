@@ -6,6 +6,7 @@
  * @see: {@link https://github.com/Thoregon}
  */
 
-import Archetim from "./lib/archetim.mjs";
+import ThoregonEntity, { ThoregonObject } from "./lib/thoregonentity.mjs";
+import Archetim                           from "./lib/archetim.mjs";
 
 export default new Archetim();
