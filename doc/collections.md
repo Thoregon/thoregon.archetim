@@ -7,7 +7,7 @@ implement
     https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/asyncIterator
     
 e.g. use with
-    - aForEach()
+    - asyncForEach()
     - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for-await...of
 
 ## stream interface (push, pull)
