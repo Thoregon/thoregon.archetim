@@ -1,0 +1,111 @@
+
+let gun = universe.gun, soulA = 'CBBp2M6jDCNaG7uZIyZoWmcrnQ3s5qn1', soulB = 'dkWJwuIBPgUGEvo5AJlZHS4qunZB0iQ1';
+
+let a = gun.get(soulA);
+a.on((value, key) => console.log("** a.on()", value, '<-', key)); a.map().on((value, key) => console.log("*+ a.map.on()", value, '<-', key)); a.get('a').on((value, key) => console.log("*- a.a.on()", value, '<-', key));
+
+let x = gun.get(soulB); let b = x.get('ref');
+b.on((value, key) => console.log("## b.on()", value, '<-', key)); b.map().on((value, key) => console.log("#+ b.map.on()", value, '<-', key)); b.get('a').on((value, key) => console.log("#- b.a.on()", value, '<-', key));
+b.put(a);
+
+a.get('a').put('1');
+/*===========================
+** a.on() {_: {…}, a: '1'} <- CBBp2M6jDCNaG7uZIyZoWmcrnQ3s5qn1
+## b.on() {_: {…}, a: '1'} <- ref
+#- b.a.on() 1 <- a
+*- a.a.on() 1 <- a
+*+ a.map.on() 1 <- a
+#+ b.map.on() 1 <- a
+===========================*/
+
+b.put('{ del: true }');
+/*===========================
+## b.on() { del: true } <- ref
+===========================*/
+
+a.get('a').put('2');
+/*===========================
+** a.on() {_: {…}, a: '2'} <- CBBp2M6jDCNaG7uZIyZoWmcrnQ3s5qn1
+*- a.a.on() 2 <- a
+*+ a.map.on() 2 <- a
+===========================*/
+
+b.put(a);
+/*===========================
+** a.on() {_: {…}, a: '2'} <- CBBp2M6jDCNaG7uZIyZoWmcrnQ3s5qn1
+#- b.a.on() 2 <- a
+*- a.a.on() 2 <- a
+*+ a.map.on() 2 <- a
+#+ b.map.on() 2 <- a
+===========================*/
+
+a.get('a').put('3');
+/*===========================
+** a.on() {_: {…}, a: '3'} <- CBBp2M6jDCNaG7uZIyZoWmcrnQ3s5qn1
+## b.on() {_: {…}, a: '3'} <- ref
+#- b.a.on() 3 <- a
+*- a.a.on() 3 <- a
+*+ a.map.on() 3 <- a
+#+ b.map.on() 3 <- a
+===========================*/
+
+a.put('{ del: true }');
+/*===========================
+// nothing -> does not work, old content remains
+===========================*/
+
+a.get('t').put('4');
+/*===========================
+** a.on() {_: {…}, a: '4', t: '4'} <- CBBp2M6jDCNaG7uZIyZoWmcrnQ3s5qn1
+## b.on() {_: {…}, a: '4', t: '4'} <- ref
+*+ a.map.on() 4 <- t
+#+ b.map.on() 4 <- t
+===========================*/
+
+b.get('a').put('5');
+/*===========================
+## b.on() {_: {…}, a: '5', t: '5'} <- ref
+** a.on() {_: {…}, a: '5', t: '5'} <- CBBp2M6jDCNaG7uZIyZoWmcrnQ3s5qn1
+#- b.a.on() 5 <- a
+*- a.a.on() 5 <- a
+*+ a.map.on() 5 <- a
+#+ b.map.on() 5 <- a
+===========================*/
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+let gun = universe.gun, soulX = 'y1So2SIwyXtwEYVQRaoPvfJpsb82TASV', x = gun.get(soulX), y = x.get('y');
+x.on((value, key) => console.log("** x.on()", value, '<-', key)); x.map().on((value, key) => console.log("*+ x.map.on()", value, '<-', key)); x.get('y').on((value, key) => console.log("*- x.a.on()", value, '<-', key));
+y.on((value, key) => console.log("## y.on()", value, '<-', key)); y.map().on((value, key) => console.log("#+ y.map.on()", value, '<-', key));
+
+y.get('t').put('1');
+/*===========================
+** x.on() {_: {…}, y: {…}}y: {#: 'y1So2SIwyXtwEYVQRaoPvfJpsb82TASV/y'}_: {>: {…}, #: 'y1So2SIwyXtwEYVQRaoPvfJpsb82TASV'} <- y1So2SIwyXtwEYVQRaoPvfJpsb82TASV
+*- x.a.on() {_: {…}, t: '1'}t: "1"_: {>: {…}, #: 'y1So2SIwyXtwEYVQRaoPvfJpsb82TASV/y'} <- y
+## y.on() {_: {…}, t: '1'}t: "1"_: {>: {…}, #: 'y1So2SIwyXtwEYVQRaoPvfJpsb82TASV/y'} <- y
+*+ x.map.on() {_: {…}, t: '1'}t: "1"_: {>: {…}, #: 'y1So2SIwyXtwEYVQRaoPvfJpsb82TASV/y'} <- y
+#+ y.map.on() 1 <- t
+===========================*/
+
+y.put('{ del: true}');
+/*===========================
+** x.on() {_: {…}, y: '{ del: true}'} <- y1So2SIwyXtwEYVQRaoPvfJpsb82TASV
+*- x.a.on() { del: true} <- y
+## y.on() { del: true} <- y
+*+ x.map.on() { del: true} <- y
+===========================*/
+
+x.put('{ del: true }');
+/*===========================
+// nothing -> does not work, old content remains
+===========================*/
+
+y.get('t').put('2');
+/*===========================
+*- x.a.on() {_: {…}, t: '2'} <- y
+## y.on() {_: {…}, t: '2'} <- y
+*+ x.map.on() {_: {…}, t: '2'} <- y
+#+ y.map.on() 2 <- t
+** x.on() {_: {…}, y: {…}} <- y1So2SIwyXtwEYVQRaoPvfJpsb82TASV
+===========================*/
+
