@@ -422,7 +422,7 @@ export default class ThoregonDecorator extends Reporter(AccessObserver) {
         const target = instance ?? new Cls();
         let metaClass;
         // restore generic MetaClass if Cls not found
-        if (!repo || !target.metaClass) {
+        if (!repo || !target[METACLASS_PROPERTY]) {
             if (!this.meta) this.meta = {};
             metaClass = MetaClass.any();
             // if there is no key defined, attribute names can only be used as is but not be decrypted
@@ -1108,7 +1108,7 @@ export default class ThoregonDecorator extends Reporter(AccessObserver) {
         if (this.meta.metaClass) return ;
         // create a default metaclass for the target
         // todo: if the class was missing and an Object was rebuilt, use another generic metaclass
-        this.meta.metaClass = this.target.metaClass ?? ANY_METACLASS;
+        this.meta.metaClass = this.target[METACLASS_PROPERTY] ?? ANY_METACLASS;
     }
 
     /*
