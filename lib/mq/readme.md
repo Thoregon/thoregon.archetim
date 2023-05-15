@@ -8,7 +8,28 @@ the service object implements the offered functionality.
 the consumer get a transparent proxy offering the service like its
 localy available. 
 
-## Request/Response
+## Channels
+
+
+## History
+
+
+## Controller
+
+
+## Events & Actions
+
+
+
+## Actions
+
+
+
+# Add
+
+## Kinds 
+
+### Request/Response
 
 - two parties
 - exclusive communication
@@ -23,13 +44,13 @@ how it works
     - service answers
 - after work is done private Q will be dropped
 
-## Publish/Subscribe
+### Publish/Subscribe
 
 - one publisher
 - many subscribers
 
-## Push/Pull
+### Push/Pull
 
-- one client push taks
+- one client pushed task
 - multiple workers produce
 - client pulls results
