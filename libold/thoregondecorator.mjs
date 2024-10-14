@@ -42,13 +42,13 @@
  * @author: Martin Neitz, Bernhard Lukassen
  */
 
-import AccessObserver, { getAllMethodNames } from "/evolux.universe/lib/accessobserver.mjs";
-import ThoregonEntity, { ThoregonObject }    from "./thoregonentity.mjs";
-import Reporter                              from "/evolux.supervise/lib/reporter.mjs";
-import SEA                                   from "/evolux.everblack/lib/crypto/sea.mjs";
-import { isNil, isString, isPromise }        from "/evolux.util/lib/objutils.mjs";
-import MetaClass, { ATTRIBUTE_MODE }         from "./metaclass/metaclass.mjs";
-import PromiseChain                          from "./promisechain.mjs";
+import AccessObserver, { getAllMethodNames }    from "/evolux.universe/lib/accessobserver.mjs";
+import ThoregonEntity, { ThoregonObject }       from "./thoregonentity.mjs";
+import Reporter                                 from "/evolux.supervise/lib/reporter.mjs";
+import SEA                                      from "/evolux.everblack/lib/crypto/sea.mjs";
+import { isNil, isString, isSymbol, isPromise } from "/evolux.util/lib/objutils.mjs";
+import MetaClass, { ATTRIBUTE_MODE }            from "./metaclass/metaclass.mjs";
+import PromiseChain                             from "./promisechain.mjs";
 
 import {
     serialize,
@@ -149,7 +149,7 @@ async function getSoul(node) {
 /* system properties */
 
 
-const isPrivateProperty = (property) => !isString(property) ? true :  property.startsWith('_') || property.startsWith('$') || property.endsWith('_') || property.endsWith('$');
+const isPrivateProperty = (property) => isSymbol(property) ? true : !isString(property) ? false :  property.startsWith('_') || property.startsWith('$') || property.endsWith('_') || property.endsWith('$');
 
 const isTimestamp = (property) => property === 'created' || property === 'modified' || property === 'deleted';
 
