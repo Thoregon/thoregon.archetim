@@ -1,0 +1,23 @@
+{
+  "name": "thoregon.archetim",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.mjs",
+  "type": "module",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thoregon/thoregon.archetim.git"
+  },
+  "keywords": [],
+  "author": "Bernhard Lukassen <bl@bernhard-lukassen.com> (http://www.bernhard-lukassen.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "evolux.everblack": "file:../../evolux.modules/evolux.everblack",
+    "evolux.supervise": "file:../../evolux.modules/evolux.supervise",
+    "evolux.universe": "file:../../evolux.modules/evolux.universe",
+    "evolux.util": "file:../../evolux.modules/evolux.util",
+    "thoregon.neuland": "file:../thoregon.neuland",
+    "thoregon.truCloud": "file:../thoregon.truCloud"
+  }
+}

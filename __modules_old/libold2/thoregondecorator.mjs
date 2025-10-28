@@ -23,7 +23,7 @@
  */
 
 import AccessObserver, { getAllMethodNames }             from "/evolux.universe/lib/accessobserver.mjs";
-import MetaClass, { ATTRIBUTE_MODE, METACLASS_PROPERTY } from "/thoregon.archetim/lib/metaclass/metaclass.mjs";
+import MetaClass, { ATTRIBUTE_MODE, METACLASS_PROPERTY } from "./lib/metaclass/metaclass.mjs";
 import Transaction                                       from "./tx/transaction.mjs";
 import murmurhash3                                       from './murmurhash.mjs';
 // may use CRC32 instead -> https://github.com/SheetJS/js-crc32

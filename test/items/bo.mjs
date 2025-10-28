@@ -6,7 +6,7 @@
  * @see: {@link https://github.com/Thoregon}
  */
 
-import ThoregonEntity from "/thoregon.archetim/lib/thoregonentity.mjs";
+import ThoregonEntity from "../../lib/thoregonentity.mjs";
 import MetaClass      from "../../lib/metaclass/metaclass.mjs";
 
 export class BOMeta extends MetaClass {
