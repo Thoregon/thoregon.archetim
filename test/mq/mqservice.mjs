@@ -6,7 +6,7 @@
  * @see: {@link https://github.com/Thoregon}
  */
 
-import { AutomationService, Attach, OnMessage } from "/thoregon.truCloud";
+import { AutomationService, Attach, OnMessage } from "/thoregon.truCloud/index.mjs";
 
 "@AutomationService"
 export default class MQService {
